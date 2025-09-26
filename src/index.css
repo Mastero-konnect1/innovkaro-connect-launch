@@ -1,28 +1,41 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap');
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
-/* Definition of the design system. All colors, gradients, fonts, etc should be defined here. 
-All colors MUST be HSL.
-*/
+/* InnovKaro Design System - Blue to Purple Gradients */
 
 @layer base {
   :root {
+    /* Brand Colors - Blue to Purple Theme */
     --background: 0 0% 100%;
-    --foreground: 222.2 84% 4.9%;
-
-    --card: 0 0% 100%;
-    --card-foreground: 222.2 84% 4.9%;
-
-    --popover: 0 0% 100%;
-    --popover-foreground: 222.2 84% 4.9%;
-
-    --primary: 222.2 47.4% 11.2%;
-    --primary-foreground: 210 40% 98%;
-
-    --secondary: 210 40% 96.1%;
-    --secondary-foreground: 222.2 47.4% 11.2%;
-
+    --foreground: 0 0% 13%;
+    
+    /* InnovKaro Brand Gradients */
+    --brand-blue: 206 100% 50%;
+    --brand-purple: 264 77% 58%;
+    --brand-gradient: linear-gradient(135deg, hsl(var(--brand-blue)), hsl(var(--brand-purple)));
+    --brand-gradient-subtle: linear-gradient(135deg, hsl(var(--brand-blue) / 0.1), hsl(var(--brand-purple) / 0.1));
+    
+    /* Primary Colors */
+    --primary: 206 100% 50%;
+    --primary-foreground: 0 0% 100%;
+    
+    /* Secondary Colors */
+    --secondary: 206 100% 97%;
+    --secondary-foreground: 0 0% 20%;
+    
+    /* Text Colors */
+    --text-dark: 0 0% 13%;
+    --text-medium: 0 0% 40%;
+    --text-light: 0 0% 53%;
+    --text-muted: 0 0% 60%;
+    
+    /* Surface Colors */
+    --surface-light: 206 100% 97%;
+    --surface-subtle: 210 33% 96%;
+    
     --muted: 210 40% 96.1%;
     --muted-foreground: 215.4 16.3% 46.9%;
 
@@ -34,9 +47,9 @@ All colors MUST be HSL.
 
     --border: 214.3 31.8% 91.4%;
     --input: 214.3 31.8% 91.4%;
-    --ring: 222.2 84% 4.9%;
+    --ring: 206 100% 50%;
 
-    --radius: 0.5rem;
+    --radius: 0.75rem;
 
     --sidebar-background: 0 0% 98%;
 
@@ -100,6 +113,96 @@ All colors MUST be HSL.
   }
 
   body {
-    @apply bg-background text-foreground;
+    @apply bg-background text-foreground font-inter;
   }
+}
+
+/* InnovKaro Custom Components & Animations */
+@layer components {
+  .brand-gradient {
+    background: var(--brand-gradient);
+  }
+  
+  .brand-gradient-text {
+    background: var(--brand-gradient);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+  
+  .btn-gradient {
+    @apply bg-gradient-to-r from-[hsl(var(--brand-blue))] to-[hsl(var(--brand-purple))] text-white font-medium rounded-full px-8 py-3 hover:shadow-lg transition-all duration-300 hover:scale-105;
+  }
+  
+  .btn-outline-gradient {
+    @apply bg-transparent border-2 border-transparent bg-gradient-to-r from-[hsl(var(--brand-blue))] to-[hsl(var(--brand-purple))] bg-clip-border relative;
+    background-clip: padding-box;
+  }
+  
+  .btn-outline-gradient::before {
+    content: '';
+    position: absolute;
+    top: 2px;
+    left: 2px;
+    right: 2px;
+    bottom: 2px;
+    background: white;
+    border-radius: inherit;
+    z-index: -1;
+  }
+  
+  .network-bg {
+    background-image: radial-gradient(circle at 20% 80%, hsl(var(--brand-blue) / 0.05) 0%, transparent 50%),
+                      radial-gradient(circle at 80% 20%, hsl(var(--brand-purple) / 0.05) 0%, transparent 50%),
+                      radial-gradient(circle at 40% 40%, hsl(var(--brand-blue) / 0.03) 0%, transparent 50%);
+  }
+}
+
+@layer utilities {
+  .font-inter {
+    font-family: 'Inter', system-ui, -apple-system, sans-serif;
+  }
+}
+
+/* Network Animation Keyframes */
+@keyframes pulse-node {
+  0%, 100% {
+    opacity: 0.4;
+    transform: scale(1);
+  }
+  50% {
+    opacity: 1;
+    transform: scale(1.1);
+  }
+}
+
+@keyframes flow-line {
+  0% {
+    stroke-dashoffset: 100;
+  }
+  100% {
+    stroke-dashoffset: 0;
+  }
+}
+
+@keyframes float {
+  0%, 100% {
+    transform: translateY(0px);
+  }
+  50% {
+    transform: translateY(-10px);
+  }
+}
+
+.pulse-node {
+  animation: pulse-node 2s ease-in-out infinite;
+}
+
+.flow-line {
+  stroke-dasharray: 5 5;
+  animation: flow-line 3s linear infinite;
+}
+
+.float-element {
+  animation: float 6s ease-in-out infinite;
 }

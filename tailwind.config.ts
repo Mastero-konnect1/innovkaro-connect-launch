@@ -13,12 +13,24 @@ export default {
       },
     },
     extend: {
+      fontFamily: {
+        inter: ['Inter', 'system-ui', '-apple-system', 'sans-serif'],
+      },
       colors: {
         border: "hsl(var(--border))",
         input: "hsl(var(--input))",
         ring: "hsl(var(--ring))",
         background: "hsl(var(--background))",
         foreground: "hsl(var(--foreground))",
+        // InnovKaro Brand Colors
+        'brand-blue': "hsl(var(--brand-blue))",
+        'brand-purple': "hsl(var(--brand-purple))",
+        'text-dark': "hsl(var(--text-dark))",
+        'text-medium': "hsl(var(--text-medium))",
+        'text-light': "hsl(var(--text-light))",
+        'text-muted': "hsl(var(--text-muted))",
+        'surface-light': "hsl(var(--surface-light))",
+        'surface-subtle': "hsl(var(--surface-subtle))",
         primary: {
           DEFAULT: "hsl(var(--primary))",
           foreground: "hsl(var(--primary-foreground))",
