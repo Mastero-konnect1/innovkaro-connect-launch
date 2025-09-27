@@ -1,118 +1,55 @@
-import { Twitter, Linkedin, Facebook, Instagram } from 'lucide-react';
+import { Twitter, Linkedin, Youtube, Facebook, Instagram } from 'lucide-react';
 
 const Footer = () => {
   return (
-    <footer className="bg-white relative">
-      {/* Subtle gradient divider */}
-      <div className="absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-[hsl(var(--brand-blue)/0.05)] to-transparent"></div>
-      
-      {/* Partner Section */}
-      <div className="border-b border-border py-12">
-        <div className="max-w-[1200px] mx-auto px-6">
-          <div className="text-center mb-8">
-            <h3 className="text-lg font-semibold text-text-dark mb-2">Partnered With</h3>
+    <footer className="bg-gradient-to-r from-sky-600 to-indigo-700 text-white mt-12">
+      <div className="max-w-7xl mx-auto px-6 py-16">
+        <div className="grid grid-cols-1 md:grid-cols-4 gap-8">
+          <div>
+            <h3 className="text-2xl font-semibold">InnovKaro</h3>
+            <p className="mt-4 text-sm opacity-90">Connecting mentors and mentees for meaningful professional growth and career development.</p>
+            <div className="flex gap-4 mt-4">
+              <a href="https://x.com/KonnectMas86897" target='_blank' className="hover:text-sky-200 hover:scale-105 transition-transform"><Twitter/></a>
+              <a href="https://www.linkedin.com/company/innov-karo/" target='_blank' className="hover:text-sky-200 hover:scale-105 transition-transform"><Linkedin /></a>
+              <a href="https://www.youtube.com/@Innovkaro" target='_blank' className="hover:text-sky-200 hover:scale-105 transition-transform"><Youtube/></a>
+              <a href=" https://www.facebook.com/profile.php?id=61581066593207" target='_blank' className="hover:text-sky-200 hover:scale-105 transition-transform"><Facebook/></a>
+              <a href="https://www.instagram.com/innovkaro/" target='_blank' className="hover:text-sky-200 hover:scale-105 transition-transform"><Instagram/></a>
+            </div>
           </div>
-          <div className="flex items-center justify-center gap-8 flex-wrap">
-            {/* Partner logo placeholders */}
-            {[1, 2, 3, 4, 5, 6].map((i) => (
-              <div 
-                key={i}
-                className="w-32 h-16 bg-gray-100 rounded-lg flex items-center justify-center opacity-60 hover:opacity-80 transition-opacity"
-              >
-                <span className="text-gray-400 text-xs font-medium">Partner {i}</span>
-              </div>
-            ))}
+
+          <div>
+            <h4 className="font-semibold mb-3">Quick Links</h4>
+            <ul className="text-sm space-y-2">
+              <li><a href="/find-mentor" className="hover:underline hover:text-sky-400 transition">Find Mentors</a></li>
+              <li><a href="/ai-assessment" className="hover:underline hover:text-sky-400 transition">AI Assessment</a></li>
+              <li><a href="/profile-building" className="hover:underline hover:text-sky-400 transition">Build Profile</a></li>
+              <li><a href="/auth/sign-up" className="hover:underline hover:text-sky-400 transition">Become a Mentor</a></li>
+            </ul>
           </div>
-        </div>
-      </div>
 
-      {/* Main Footer Content */}
-      <div className="py-16">
-        <div className="max-w-[1200px] mx-auto px-6">
-          <div className="grid grid-cols-1 md:grid-cols-4 gap-8">
-            {/* Column 1: Logo and Tagline */}
-            <div className="space-y-4">
-              <div className="flex items-center space-x-2">
-                <img src="/src/assets/innovkaro-logo.png" alt="InnovKaro" className="h-8 w-8" />
-                <span className="text-xl font-bold">
-                  <span className="text-text-dark">Innov</span>
-                  <span className="brand-gradient-text">Karo</span>
-                </span>
-              </div>
-              <p className="text-text-muted text-sm leading-relaxed">
-                AI-powered platform connecting mentors and mentees for meaningful growth and learning experiences.
-              </p>
-            </div>
+           <div>
+            <h4 className="font-semibold mb-3">About Us</h4>
+            <ul className="text-sm space-y-2">
+              <li><a href="#mission" className="hover:underline hover:text-sky-400 transition">Our Mission</a></li>
+              <li><a href="#how-it-works" className="hover:underline hover:text-sky-400 transition">How It Works</a></li>
+              <li><a href="#success" className="hover:underline hover:text-sky-400 transition">Success Stories</a></li>
+              <li><a href="#blog" className="hover:underline hover:text-sky-400 transition">Blog</a></li>
+            </ul>
+          </div>
 
-            {/* Column 2: Quick Links */}
-            <div className="space-y-4">
-              <h4 className="font-semibold text-text-dark">Quick Links</h4>
-              <ul className="space-y-2">
-                {['Home', 'Find Mentors', 'Become a Mentor', 'How It Works', 'Pricing'].map((link) => (
-                  <li key={link}>
-                    <a href="#" className="text-text-muted hover:text-brand-blue transition-colors text-sm">
-                      {link}
-                    </a>
-                  </li>
-                ))}
-              </ul>
-            </div>
-
-            {/* Column 3: About Us */}
-            <div className="space-y-4">
-              <h4 className="font-semibold text-text-dark">About Us</h4>
-              <ul className="space-y-2">
-                {['Our Story', 'Blog', 'Careers', 'Press', 'Privacy Policy'].map((link) => (
-                  <li key={link}>
-                    <a href="#" className="text-text-muted hover:text-brand-blue transition-colors text-sm">
-                      {link}
-                    </a>
-                  </li>
-                ))}
-              </ul>
-            </div>
-
-            {/* Column 4: Contact Info */}
-            <div className="space-y-4">
-              <h4 className="font-semibold text-text-dark">Contact Info</h4>
-              <div className="space-y-2 text-sm text-text-muted">
-                <p>123 Innovation Street<br />Tech City, TC 12345</p>
-                <p>hello@innovkaro.com</p>
-                <p>+1 (555) 123-4567</p>
-              </div>
-            </div>
+          <div>
+            <h4 className="font-semibold mb-3">Contact</h4>
+            <p className="text-sm">Email: hello@innovkaro.com</p>
+            <p className="text-sm mt-2">Phone: +1 (555) 123-4567</p>
+            <ul className="text-sm space-y-2 mt-4">
+              <li><a href="#support" className="hover:underline hover:text-sky-400 transition">Support Center</a></li>
+              <li><a href="#privacy" className="hover:underline hover:text-sky-400 transition">Privacy Policy</a></li>
+            </ul>
           </div>
         </div>
-      </div>
 
-      {/* Bottom Bar */}
-      <div className="border-t border-border py-6">
-        <div className="max-w-[1200px] mx-auto px-6">
-          <div className="flex flex-col sm:flex-row justify-between items-center gap-4">
-            <p className="text-text-muted text-sm">
-              © 2025 InnovKaro. All Rights Reserved.
-            </p>
-            
-            {/* Social Media Icons */}
-            <div className="flex items-center space-x-4">
-              {[
-                { Icon: Twitter, href: '#', label: 'Twitter' },
-                { Icon: Linkedin, href: '#', label: 'LinkedIn' },
-                { Icon: Facebook, href: '#', label: 'Facebook' },
-                { Icon: Instagram, href: '#', label: 'Instagram' }
-              ].map(({ Icon, href, label }) => (
-                <a
-                  key={label}
-                  href={href}
-                  className="text-text-muted hover:text-brand-blue transition-all duration-300 hover:drop-shadow-[0_0_8px_hsl(var(--brand-blue)/0.3)]"
-                  aria-label={label}
-                >
-                  <Icon size={20} />
-                </a>
-              ))}
-            </div>
-          </div>
-        </div>
+        <hr className="my-8 border-white/20" />
+        <div className="text-center text-sm opacity-80">© 2024 InnovKaro. All rights reserved. Built with ❤️ for professional growth.</div>
       </div>
     </footer>
   );

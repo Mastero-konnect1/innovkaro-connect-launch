@@ -32,41 +32,41 @@ const SecondHero = () => {
           </Button>
         </div>
 
-        {/* Profile Cards Row */}
-        <div className="flex justify-center items-end space-x-4 overflow-x-auto pb-4">
-          {profileCards.map((profile, index) => (
-            <div
-              key={profile.id}
-              className={`flex-shrink-0 bg-white rounded-2xl p-4 shadow-2xl transform transition-all duration-300 hover:scale-105 ${
-                index % 2 === 0 ? 'translate-y-2' : ''
-              } ${
-                index % 3 === 0 ? 'rotate-1' : index % 3 === 2 ? '-rotate-1' : ''
-              }`}
-              style={{
-                width: '120px',
-                height: '150px',
-                boxShadow: '0 20px 40px -12px rgba(0, 123, 255, 0.25), 0 8px 25px -8px rgba(157, 78, 221, 0.15)'
-              }}
-            >
-              <div className="space-y-3">
-                <div className="w-16 h-16 mx-auto rounded-full overflow-hidden bg-gradient-to-br from-brand-blue to-brand-purple p-0.5">
-                  <img
-                    src={profile.image}
-                    alt={`${profile.name} profile`}
-                    className="w-full h-full rounded-full object-cover bg-white"
-                  />
-                </div>
-                <div className="space-y-1">
-                  <h3 className="text-sm font-semibold text-text-dark leading-tight">
-                    {profile.name}
-                  </h3>
-                  <p className="text-xs text-text-muted leading-tight">
-                    {profile.role}
-                  </p>
+        {/* Profile Cards Row - Auto-scrolling */}
+        <div className="relative overflow-hidden">
+          <div className="flex animate-[scroll_20s_linear_infinite] hover:[animation-play-state:paused]">
+            {/* Double the cards for seamless loop */}
+            {[...profileCards, ...profileCards].map((profile, index) => (
+              <div
+                key={`${profile.id}-${index}`}
+                className={`flex-shrink-0 glass-card rounded-2xl p-4 mx-2 transform transition-all duration-300 hover:scale-105`}
+                style={{
+                  width: '120px',
+                  height: '150px',
+                  animation: `wave 3s ease-in-out infinite ${index * 0.5}s`,
+                  boxShadow: '0 20px 40px -12px rgba(0, 123, 255, 0.25), 0 8px 25px -8px rgba(157, 78, 221, 0.15)'
+                }}
+              >
+                <div className="space-y-3">
+                  <div className="w-16 h-16 mx-auto rounded-full overflow-hidden bg-gradient-to-br from-brand-blue to-brand-purple p-0.5">
+                    <img
+                      src={profile.image}
+                      alt={`${profile.name} profile`}
+                      className="w-full h-full rounded-full object-cover bg-white"
+                    />
+                  </div>
+                  <div className="space-y-1">
+                    <h3 className="text-sm font-semibold text-text-dark leading-tight">
+                      {profile.name}
+                    </h3>
+                    <p className="text-xs text-text-muted leading-tight">
+                      {profile.role}
+                    </p>
+                  </div>
                 </div>
               </div>
-            </div>
-          ))}
+            ))}
+          </div>
         </div>
       </div>
     </section>

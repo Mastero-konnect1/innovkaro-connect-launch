@@ -18,20 +18,20 @@ const FeaturesRow = () => {
   ];
 
   return (
-    <section className="py-20 px-6 bg-background">
+    <section className="py-20 px-6" style={{ backgroundColor: '#ffffff' }}>
       <div className="max-w-[1200px] mx-auto">
         <div className="flex flex-col md:flex-row gap-8 justify-center">
           {features.map((feature, index) => (
             <div
               key={index}
-              className={`bg-gradient-to-br ${feature.gradient} p-6 rounded-2xl shadow-lg hover:shadow-xl transition-all duration-300 transform hover:-translate-y-1 flex-1 max-w-sm`}
-              style={{ minHeight: '140px' }}
+              className="glass-card p-6 rounded-2xl shadow-lg hover:shadow-xl transition-all duration-300 transform hover:-translate-y-1 flex-1 max-w-sm"
+              style={{ minHeight: '120px', width: '200px' }}
             >
-              <div className="text-white space-y-3">
-                <h3 className="text-xl font-semibold leading-tight">
+              <div className="space-y-3">
+                <h3 className="text-xl font-semibold leading-tight text-black bg-gradient-to-r from-brand-blue to-brand-purple bg-clip-text text-transparent">
                   {feature.title}
                 </h3>
-                <p className="text-sm leading-relaxed opacity-90">
+                <p className="text-sm leading-relaxed text-black">
                   {feature.description}
                 </p>
               </div>
