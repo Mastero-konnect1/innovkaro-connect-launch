@@ -1,52 +1,113 @@
-import { useState, useEffect } from 'react';
-import innovkaroLogo from '@/assets/innovkaro-logo.png';
-import { Button } from '@/components/ui/button';
+'use client'
 
-const Navigation = () => {
-  const [isScrolled, setIsScrolled] = useState(false);
+import { useState } from 'react'
+import innovkaroLogo from '@/assets/innovkaro-logo.jpeg'
+import innovkaroText from '@/assets/innovkaro-text.jpeg'
+import { Menu, X } from 'lucide-react'
+import { Button } from '@/components/ui/button'
 
-  useEffect(() => {
-    const handleScroll = () => {
-      setIsScrolled(window.scrollY > 10);
-    };
+export default function Navigation() {
+  const [isMenuOpen, setIsMenuOpen] = useState(false)
 
-    window.addEventListener('scroll', handleScroll);
-    return () => window.removeEventListener('scroll', handleScroll);
-  }, []);
+  const toggleMenu = () => setIsMenuOpen(!isMenuOpen)
 
   return (
-    <nav className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
-      isScrolled ? 'bg-white/95 backdrop-blur-md shadow-sm' : 'bg-white'
-    }`}>
-      <div className="max-w-[1200px] mx-auto px-6">
-        <div className="flex items-center h-20">
-          {/* Logo Section - Left */}
-          <div className="flex items-center space-x-3 mr-12">
+    <nav className="fixed top-0 left-0 right-0 z-50 bg-white/95 backdrop-blur-md border-b border-border">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="flex justify-between items-center h-16">
+          {/* Logo */}
+          <div className="flex items-center ">
             <img 
               src={innovkaroLogo} 
               alt="InnovKaro Logo" 
-              className="h-10 w-10 object-contain"
+              className="h-14 w-14 object-contain"
             />
-            <div className="text-2xl font-bold">
-              <span className="text-text-dark">Innov</span>
-              <span className="brand-gradient-text">Karo</span>
+            <img 
+              src={innovkaroText} 
+              alt="InnovKaro Text" 
+              className="h-12 object-contain"
+            />
+          </div>
+
+          {/* Desktop Navigation */}
+          <div className="hidden md:flex items-center space-x-8">
+            <a href="/" className="text-gray-600 hover:text-black transition-colors">
+              Home
+            </a>
+            <a href="/find-mentor" className="text-gray-600 hover:text-black transition-colors">
+              Find Mentors
+            </a>
+            <a href="/ai-assessment" className="text-gray-600 hover:text-black transition-colors">
+              AI Assessment
+            </a>
+            <a href="/profile-building" className="text-gray-600 hover:text-black transition-colors">
+              Profile
+            </a>
+          </div>
+
+          {/* Desktop CTA Buttons */}
+          <div className="hidden md:flex items-center space-x-4">
+            <Button variant="outline" asChild className="text-black border-gray-300 hover:bg-gray-50">
+              <a href="/auth/sign-up">Become a Mentor</a>
+            </Button>
+            <Button asChild className="bg-gradient-to-r from-blue-600 to-purple-600 hover:opacity-90">
+              <a href="/auth/sign-in">Get Started</a>
+            </Button>
+          </div>
+
+          {/* Mobile Menu Button */}
+          <button
+            onClick={toggleMenu}
+            className="md:hidden p-2 rounded-md text-gray-600 hover:text-black hover:bg-gray-100 transition-colors"
+          >
+            {isMenuOpen ? <X size={24} /> : <Menu size={24} />}
+          </button>
+        </div>
+
+        {/* Mobile Menu */}
+        {isMenuOpen && (
+          <div className="md:hidden py-4 border-t border-border bg-white text-black">
+            <div className="flex flex-col space-y-4">
+              <a
+                href="/"
+                className="text-gray-600 hover:text-black transition-colors px-4 py-2"
+                onClick={toggleMenu}
+              >
+                Home
+              </a>
+              <a
+                href="/find-mentor"
+                className="text-gray-600 hover:text-black transition-colors px-4 py-2"
+                onClick={toggleMenu}
+              >
+                Find Mentors
+              </a>
+              <a
+                href="/ai-assessment"
+                className="text-gray-600 hover:text-black transition-colors px-4 py-2"
+                onClick={toggleMenu}
+              >
+                AI Assessment
+              </a>
+              <a
+                href="/profile-building"
+                className="text-gray-600 hover:text-black transition-colors px-4 py-2"
+                onClick={toggleMenu}
+              >
+                Profile
+              </a>
+              <div className="flex flex-col space-y-2 px-4 pt-4 text-black border-t border-border">
+                <Button variant="outline" asChild className="text-black border-gray-300 hover:bg-gray-50">
+                  <a href="/auth/sign-up" onClick={toggleMenu}>Become a Mentor</a>
+                </Button>
+                <Button asChild className="bg-gradient-to-r from-blue-600 to-purple-600 hover:opacity-90">
+                  <a href="/auth/sign-in" onClick={toggleMenu}>Get Started</a>
+                </Button>
+              </div>
             </div>
           </div>
-
-          {/* Center Navigation */}
-          <div className="hidden md:flex items-center space-x-8 flex-1 justify-center">
-            <a href="#services" className="text-text-medium hover:text-text-dark transition-colors">Services</a>
-            <a href="#features" className="text-text-medium hover:text-text-dark transition-colors">Features</a>
-            <a href="#blog" className="text-text-medium hover:text-text-dark transition-colors">Blog</a>
-            <a href="#services" className="text-text-medium hover:text-text-dark transition-colors">Services</a>
-          </div>
-
-          {/* Mobile hamburger placeholder */}
-          <div className="md:hidden flex-1"></div>
-        </div>
+        )}
       </div>
     </nav>
-  );
-};
-
-export default Navigation;
+  )
+}

@@ -1,8 +1,8 @@
 import { Button } from '@/components/ui/button';
+  
 
 const SecondHero = () => {
   const profileCards = [
-    { id: 1, name: "Sarah Chen", role: "Product Manager", image: "https://images.unsplash.com/photo-1494790108755-2616b6210533?w=150&h=150&fit=crop&crop=face" },
     { id: 2, name: "David Kumar", role: "Tech Lead", image: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=150&h=150&fit=crop&crop=face" },
     { id: 3, name: "Maya Rodriguez", role: "Designer", image: "https://images.unsplash.com/photo-1438761681033-6461ffad8d80?w=150&h=150&fit=crop&crop=face" },
     { id: 4, name: "James Wilson", role: "Developer", image: "https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=150&h=150&fit=crop&crop=face" },
@@ -17,21 +17,21 @@ const SecondHero = () => {
       <div className="max-w-[1200px] mx-auto text-center">
         {/* Main Content */}
         <div className="space-y-8 mb-16">
-          <h1 className="font-playfair text-5xl lg:text-6xl font-bold leading-tight text-text-dark max-w-4xl mx-auto">
+          <h1 className="font-playfair text-5xl lg:text-6xl font-bold leading-tight text-black max-w-4xl mx-auto">
             All-in-one platform to plan, collaborate, and deliver
             <span className="brand-gradient-text"> — faster and smarter</span>
           </h1>
           
-          <p className="text-xl text-text-medium leading-relaxed max-w-2xl mx-auto">
+          <p className="text-xl text-black leading-relaxed max-w-2xl mx-auto">
             InnovKaro connects teams with AI-powered collaboration tools, 
             smart project management, and seamless workflow automation.
           </p>
           
-          <Button className="bg-text-dark text-white hover:bg-text-medium h-12 px-8 text-base font-medium rounded-lg shadow-lg transition-all duration-300">
+          <Button className="bg-black text-white hover:bg-black h-12 px-8 text-base font-medium rounded-lg shadow-lg transition-all duration-300">
             Get started for Free
           </Button>
         </div>
-
+       
         {/* Profile Cards Row - Auto-scrolling */}
         <div className="relative overflow-hidden">
           <div className="flex animate-[scroll_20s_linear_infinite] hover:[animation-play-state:paused]">
@@ -56,10 +56,10 @@ const SecondHero = () => {
                     />
                   </div>
                   <div className="space-y-1">
-                    <h3 className="text-sm font-semibold text-text-dark leading-tight">
+                    <h3 className="text-sm font-semibold text-black leading-tight">
                       {profile.name}
                     </h3>
-                    <p className="text-xs text-text-muted leading-tight">
+                    <p className="text-xs text-black leading-tight">
                       {profile.role}
                     </p>
                   </div>

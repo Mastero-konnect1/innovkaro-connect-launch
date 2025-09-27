@@ -3,25 +3,25 @@ const MidSectionGrid = () => {
     {
       title: "Built-In Team Chat",
       description: "Integrated messaging system with channels, direct messages, and file sharing to keep all communication in one place.",
-      image: "https://images.unsplash.com/photo-1611224923853-80b023f02d71?w=300&h=200&fit=crop",
+      image: "/Built-In Team Chat.jpeg",
       gradient: "from-brand-blue/10 to-brand-purple/10"
     },
     {
       title: "Task Assignment",
       description: "Smart task distribution with automated workload balancing, deadline tracking, and priority management.",
-      image: "https://images.unsplash.com/photo-1611224923853-80b023f02d71?w=300&h=200&fit=crop",
+      image: "/Task Assignmentt.jpeg",
       gradient: "from-brand-purple/10 to-brand-blue/10"
     },
     {
       title: "Real-Time Scheduling",
       description: "Dynamic calendar integration with intelligent meeting scheduling, availability tracking, and timezone management.",
-      image: "https://images.unsplash.com/photo-1611224923853-80b023f02d71?w=300&h=200&fit=crop",
+      image: "/Real-Time Scheduling.jpeg",
       gradient: "from-brand-blue/10 to-brand-purple/10"
     },
     {
       title: "Progress Tracking",
       description: "Comprehensive project monitoring with visual dashboards, milestone tracking, and automated progress reports.",
-      image: "https://images.unsplash.com/photo-1611224923853-80b023f02d71?w=300&h=200&fit=crop",
+      image: "/Progress tracking.jpeg",
       gradient: "from-brand-purple/10 to-brand-blue/10"
     }
   ];
@@ -49,10 +49,12 @@ const MidSectionGrid = () => {
             >
               <div className="h-full flex flex-col">
                 {/* Image Area */}
-                <div className="w-full h-24 mb-4 rounded-lg overflow-hidden bg-gradient-to-r from-brand-blue/20 to-brand-purple/20 flex items-center justify-center">
-                  <div className="w-16 h-16 bg-gradient-to-br from-brand-blue to-brand-purple rounded-lg flex items-center justify-center">
-                    <div className="w-8 h-8 bg-white rounded opacity-80"></div>
-                  </div>
+                <div className="w-full h-32 mb-4 rounded-lg overflow-hidden bg-gradient-to-r from-brand-blue/20 to-brand-purple/20 flex items-center justify-center">
+                  <img 
+                    src={feature.image} 
+                    alt={feature.title}
+                    className="w-full h-full object-cover rounded-lg"
+                  />
                 </div>
                 
                 {/* Content */}

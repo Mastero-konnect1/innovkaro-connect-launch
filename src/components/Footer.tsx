@@ -39,8 +39,8 @@ const Footer = () => {
 
           <div>
             <h4 className="font-semibold mb-3">Contact</h4>
-            <p className="text-sm">Email: hello@innovkaro.com</p>
-            <p className="text-sm mt-2">Phone: +1 (555) 123-4567</p>
+            <p className="text-sm">Email: connect@innovkaro.com</p>
+            <p className="text-sm mt-2">Phone: +91 73829 87332</p>
             <ul className="text-sm space-y-2 mt-4">
               <li><a href="#support" className="hover:underline hover:text-sky-400 transition">Support Center</a></li>
               <li><a href="#privacy" className="hover:underline hover:text-sky-400 transition">Privacy Policy</a></li>
