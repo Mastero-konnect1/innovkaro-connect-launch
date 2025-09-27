@@ -9,8 +9,8 @@
 @layer base {
   :root {
     /* Brand Colors - Blue to Purple Theme */
-    --background: 0 0% 100%;
-    --foreground: 0 0% 13%;
+    --background: 248 246 242;
+    --foreground: 34 34 35;
     
     /* InnovKaro Brand Gradients */
     --brand-blue: 206 100% 50%;
@@ -27,10 +27,10 @@
     --secondary-foreground: 0 0% 20%;
     
     /* Text Colors */
-    --text-dark: 0 0% 13%;
-    --text-medium: 0 0% 40%;
-    --text-light: 0 0% 53%;
-    --text-muted: 0 0% 60%;
+    --text-dark: 34 34 35;
+    --text-medium: 82 82 82;
+    --text-light: 135 135 135;
+    --text-muted: 153 153 153;
     
     /* Surface Colors */
     --surface-light: 206 100% 97%;
