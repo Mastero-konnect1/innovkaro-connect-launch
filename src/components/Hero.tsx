@@ -14,23 +14,27 @@ const Hero = () => {
             </h1>
             
             <p className="text-xl text-black leading-relaxed max-w-2xl mx-auto">
-              InnovKaro is your AI-powered platform to connect mentors and mentees. 
-              Stay tuned to be part of the journey.
+            <span className="text-brand-blue font-bold">
+                Feeling stuck?  <br />
+              </span>
+            Connect directly with industry specialists, gain real insights, and make the right moves with InnovKaro by your side. Your AI-powered mentorship journey starts soon.
             </p>
           </div>
 
           {/* CTA Buttons */}
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
+            <link rel="stylesheet" href="https://forms.gle/5WYaAz3cGb3k5VEc8" />
+            <a href="https://forms.gle/5WYaAz3cGb3k5VEc8" target="_blank">
             <Button className="btn-gradient h-12 px-8 text-base font-medium">
-              Notify Me
+              Notify me
             </Button>
-            
-            <Button 
+            </a>
+            {/* <Button 
               variant="outline"
               className="h-12 px-8 text-base font-medium border-2 border-brand-blue text-brand-blue hover:bg-brand-blue hover:text-white transition-all duration-300"
             >
               Learn More
-            </Button>
+            </Button> */}
           </div>
 
           {/* Stats or Features */}
