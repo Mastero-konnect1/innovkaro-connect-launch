@@ -1,73 +1,236 @@
-import { Button } from '@/components/ui/button';
-  
+import React, { useState, useRef, useEffect } from 'react';
+import { ChevronLeft, ChevronRight, Brain, Cpu, Scale, Monitor, DollarSign, Megaphone, TrendingUp, Package, Settings, Palette, Rocket } from 'lucide-react';
 
-const SecondHero = () => {
-  const profileCards = [
-    { id: 2, name: "David Kumar", role: "Tech Lead", image: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=150&h=150&fit=crop&crop=face" },
-    { id: 3, name: "Maya Rodriguez", role: "Designer", image: "https://images.unsplash.com/photo-1438761681033-6461ffad8d80?w=150&h=150&fit=crop&crop=face" },
-    { id: 4, name: "James Wilson", role: "Developer", image: "https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=150&h=150&fit=crop&crop=face" },
-    { id: 5, name: "Lisa Park", role: "Marketing", image: "https://images.unsplash.com/photo-1544005313-94ddf0286df2?w=150&h=150&fit=crop&crop=face" },
-    { id: 6, name: "Alex Thompson", role: "Sales Lead", image: "https://images.unsplash.com/photo-1500648767791-00dcc994a43e?w=150&h=150&fit=crop&crop=face" },
-    { id: 7, name: "Emma Davis", role: "Operations", image: "https://images.unsplash.com/photo-1487412720507-e7ab37603c6f?w=150&h=150&fit=crop&crop=face" },
-    { id: 8, name: "Ryan Miller", role: "Strategy", image: "https://images.unsplash.com/photo-1519085360753-af0119f7cbe7?w=150&h=150&fit=crop&crop=face" }
-  ];
+interface MentorCategory {
+  id: string;
+  name: string;
+  icon: React.ReactNode;
+  plateClass: string;
+  iconClass: string;
+}
+
+const mentorCategories: MentorCategory[] = [
+  {
+    id: 'ai-ml',
+    name: 'AI & Machine Learning',
+    icon: <Brain size={26} strokeWidth={1.75} />,
+    plateClass: 'mentor-plate-blue',
+    iconClass: 'text-blue-600'
+  },
+  {
+    id: 'chip-design',
+    name: 'Chip Design & Semiconductors',
+    icon: <Cpu size={26} strokeWidth={1.75} />,
+    plateClass: 'mentor-plate-purple',
+    iconClass: 'text-violet-600'
+  },
+  {
+    id: 'legal-law',
+    name: 'Legal & Law',
+    icon: <Scale size={26} strokeWidth={1.75} />,
+    plateClass: 'mentor-plate-amber',
+    iconClass: 'text-amber-500'
+  },
+  {
+    id: 'technology-it',
+    name: 'Technology & IT',
+    icon: <Monitor size={26} strokeWidth={1.75} />,
+    plateClass: 'mentor-plate-mint',
+    iconClass: 'text-emerald-500'
+  },
+  {
+    id: 'finance-investment',
+    name: 'Finance & Investment',
+    icon: <DollarSign size={26} strokeWidth={1.75} />,
+    plateClass: 'mentor-plate-mint',
+    iconClass: 'text-green-600'
+  },
+  {
+    id: 'marketing-branding',
+    name: 'Marketing & Branding',
+    icon: <Megaphone size={26} strokeWidth={1.75} />,
+    plateClass: 'mentor-plate-rose',
+    iconClass: 'text-pink-600'
+  },
+  {
+    id: 'sales-business',
+    name: 'Sales & Business Development',
+    icon: <TrendingUp size={26} strokeWidth={1.75} />,
+    plateClass: 'mentor-plate-amber',
+    iconClass: 'text-orange-500'
+  },
+  {
+    id: 'operations-supply',
+    name: 'Operations & Supply Chain',
+    icon: <Package size={26} strokeWidth={1.75} />,
+    plateClass: 'mentor-plate-ice',
+    iconClass: 'text-cyan-500'
+  },
+  {
+    id: 'product-management',
+    name: 'Product Management',
+    icon: <Settings size={26} strokeWidth={1.75} />,
+    plateClass: 'mentor-plate-peri',
+    iconClass: 'text-indigo-600'
+  },
+  {
+    id: 'design-innovation',
+    name: 'Design & Innovation',
+    icon: <Palette size={26} strokeWidth={1.75} />,
+    plateClass: 'mentor-plate-rose',
+    iconClass: 'text-rose-600'
+  },
+  {
+    id: 'startups-entrepreneurship',
+    name: 'Startups & Entrepreneurship',
+    icon: <Rocket size={26} strokeWidth={1.75} />,
+    plateClass: 'mentor-plate-purple',
+    iconClass: 'text-purple-600'
+  }
+];
+
+interface MentorCardProps {
+  category: MentorCategory;
+}
+
+const MentorCard: React.FC<MentorCardProps> = ({ category }) => (
+  <div className="mentor-card group">
+    <div className={`mentor-plate ${category.plateClass}`}>
+      <div className={category.iconClass}>
+        {category.icon}
+      </div>
+    </div>
+    <div className="mentor-label">
+      {category.name}
+    </div>
+  </div>
+);
+
+interface SecondHeroProps {
+  variant?: 'grid' | 'carousel';
+}
+
+const SecondHero: React.FC<SecondHeroProps> = ({ variant = 'carousel' }) => {
+  const [canScrollLeft, setCanScrollLeft] = useState(false);
+  const [canScrollRight, setCanScrollRight] = useState(true);
+  const carouselRef = useRef<HTMLDivElement>(null);
+  const [isAutoScrolling, setIsAutoScrolling] = useState(true);
+
+  useEffect(() => {
+    const carousel = carouselRef.current;
+    if (!carousel || variant !== 'carousel') return;
+
+    const checkScrollButtons = () => {
+      setCanScrollLeft(carousel.scrollLeft > 0);
+      setCanScrollRight(
+        carousel.scrollLeft < carousel.scrollWidth - carousel.clientWidth
+      );
+    };
+
+    carousel.addEventListener('scroll', checkScrollButtons);
+    checkScrollButtons();
+
+    // Auto-scroll functionality
+    let autoScrollInterval: NodeJS.Timeout;
+    
+    if (isAutoScrolling) {
+      autoScrollInterval = setInterval(() => {
+        if (carousel.scrollLeft >= carousel.scrollWidth - carousel.clientWidth) {
+          carousel.scrollTo({ left: 0, behavior: 'smooth' });
+        } else {
+          carousel.scrollBy({ left: 300, behavior: 'smooth' });
+        }
+      }, 3000);
+    }
+
+    return () => {
+      carousel.removeEventListener('scroll', checkScrollButtons);
+      if (autoScrollInterval) clearInterval(autoScrollInterval);
+    };
+  }, [variant, isAutoScrolling]);
+
+  const scrollLeft = () => {
+    carouselRef.current?.scrollBy({ left: -300, behavior: 'smooth' });
+  };
+
+  const scrollRight = () => {
+    carouselRef.current?.scrollBy({ left: 300, behavior: 'smooth' });
+  };
 
   return (
-    <section className="py-20 px-6 bg-background">
-      <div className="max-w-[1200px] mx-auto text-center">
-        {/* Main Content */}
-        <div className="space-y-8 mb-16">
-          <h1 className="font-playfair text-5xl lg:text-6xl font-bold leading-tight text-black max-w-4xl mx-auto">
-            All-in-one platform to plan, collaborate, and deliver
-            <span className="brand-gradient-text"> — faster and smarter</span>
-          </h1>
-          
-          <p className="text-xl text-black leading-relaxed max-w-2xl mx-auto">
-            InnovKaro connects teams with AI-powered collaboration tools, 
-            smart project management, and seamless workflow automation.
-          </p>
-          
-          <Button className="bg-black text-white hover:bg-black h-12 px-8 text-base font-medium rounded-lg shadow-lg transition-all duration-300">
-            Get started for Free
-          </Button>
-        </div>
-       
-        {/* Profile Cards Row - Auto-scrolling */}
-        <div className="relative overflow-hidden">
-          <div className="flex animate-[scroll_20s_linear_infinite] hover:[animation-play-state:paused]">
-            {/* Double the cards for seamless loop */}
-            {[...profileCards, ...profileCards].map((profile, index) => (
-              <div
-                key={`${profile.id}-${index}`}
-                className={`flex-shrink-0 glass-card rounded-2xl p-4 mx-2 transform transition-all duration-300 hover:scale-105`}
-                style={{
-                  width: '120px',
-                  height: '150px',
-                  animation: `wave 3s ease-in-out infinite ${index * 0.5}s`,
-                  boxShadow: '0 20px 40px -12px rgba(0, 123, 255, 0.25), 0 8px 25px -8px rgba(157, 78, 221, 0.15)'
-                }}
-              >
-                <div className="space-y-3">
-                  <div className="w-16 h-16 mx-auto rounded-full overflow-hidden bg-gradient-to-br from-brand-blue to-brand-purple p-0.5">
-                    <img
-                      src={profile.image}
-                      alt={`${profile.name} profile`}
-                      className="w-full h-full rounded-full object-cover bg-white"
-                    />
-                  </div>
-                  <div className="space-y-1">
-                    <h3 className="text-sm font-semibold text-black leading-tight">
-                      {profile.name}
-                    </h3>
-                    <p className="text-xs text-black leading-tight">
-                      {profile.role}
-                    </p>
-                  </div>
-                </div>
-              </div>
+    <section className="mentor-section">
+      <div className="mentor-container">
+        {/* Title and Subtitle */}
+        <h1 className="mentor-title">
+          500+ Industry Mentors Ready to Guide You
+        </h1>
+        <p className="mentor-lead">
+          InnovKaro is backed by 500+ mentors who've already shown interest in our platform.
+          <br />
+          From established domains to cutting-edge fields, our mentors bring real-world experience
+          and actionable insights to help you make the right moves.
+        </p>
+
+        {/* Content - Grid or Carousel */}
+        {variant === 'grid' ? (
+          <div className="mentor-grid">
+            {mentorCategories.map((category) => (
+              <MentorCard key={category.id} category={category} />
             ))}
           </div>
-        </div>
+        ) : (
+          <>
+            {/* Carousel Viewport */}
+            <div className="mentor-rail-viewport">
+              <div 
+                ref={carouselRef}
+                className="mentor-rail"
+                onMouseEnter={() => setIsAutoScrolling(false)}
+                onMouseLeave={() => setIsAutoScrolling(true)}
+              >
+                <div className="mentor-rail-track">
+                  {mentorCategories.map((category) => (
+                    <MentorCard key={category.id} category={category} />
+                  ))}
+                </div>
+                {/* Duplicate track for seamless infinite scroll */}
+                <div className="mentor-rail-track">
+                  {mentorCategories.map((category) => (
+                    <MentorCard key={`${category.id}-dup`} category={category} />
+                  ))}
+                </div>
+              </div>
+
+              {/* Navigation Arrows */}
+              <button
+                className={`mentor-nav mentor-nav-left ${!canScrollLeft ? 'opacity-50 cursor-not-allowed' : ''}`}
+                onClick={scrollLeft}
+                disabled={!canScrollLeft}
+                aria-label="Previous mentors"
+              >
+                <ChevronLeft size={20} />
+              </button>
+              <button
+                className={`mentor-nav mentor-nav-right ${!canScrollRight ? 'opacity-50 cursor-not-allowed' : ''}`}
+                onClick={scrollRight}
+                disabled={!canScrollRight}
+                aria-label="Next mentors"
+              >
+                <ChevronRight size={20} />
+              </button>
+            </div>
+
+            {/* Callout Strip */}
+            <aside className="mentor-callout">
+              <h3 className="mentor-callout-title">
+                Join InnovKaro and connect with mentors who shape the future of industries
+              </h3>
+              <button className="mentor-cta-btn">
+                Connect with Mentors
+              </button>
+            </aside>
+          </>
+        )}
       </div>
     </section>
   );
