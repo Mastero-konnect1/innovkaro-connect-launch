@@ -204,12 +204,16 @@
 
   .mentor-rail {
     display: flex;
-    overflow-x: auto;
-    scroll-behavior: smooth;
+    width: max-content;
+    animation: scroll 30s linear infinite;
     scrollbar-width: none;
     -ms-overflow-style: none;
-    gap: 16px;
-    padding: 0 8px;
+    gap: 0;
+    padding: 0;
+  }
+  
+  .mentor-rail:hover {
+    animation-play-state: paused;
   }
 
   .mentor-rail::-webkit-scrollbar {
@@ -220,6 +224,7 @@
     display: flex;
     gap: 16px;
     flex-shrink: 0;
+    padding: 0 8px;
   }
 
   /* Mentor Cards */
@@ -406,7 +411,7 @@
 
 @keyframes scroll {
   0% { transform: translateX(0); }
-  100% { transform: translateX(-100%); }
+  100% { transform: translateX(-50%); }
 }
 
 @keyframes wave {
