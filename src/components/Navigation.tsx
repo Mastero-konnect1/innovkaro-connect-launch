@@ -18,15 +18,15 @@ export default function Navigation() {
           {/* Logo */}
           <div className="flex items-center ">
             <img 
-              src={innovkaroLogo} 
-              alt="InnovKaro Logo" 
-              className="h-14 w-14 object-contain"
-            />
-            <img 
               src={innovkaroText} 
               alt="InnovKaro Text" 
               className="h-12 object-contain"
             />
+            {/* <img 
+              src={innovkaroLogo} 
+              alt="InnovKaro Logo" 
+              className="h-14 w-14 object-contain"
+            /> */}
           </div>
 
           {/* Desktop Navigation */}
