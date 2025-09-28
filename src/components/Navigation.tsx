@@ -30,7 +30,7 @@ export default function Navigation() {
           </div>
 
           {/* Desktop Navigation */}
-          <div className="hidden md:flex items-center space-x-8">
+          {/* <div className="hidden md:flex items-center space-x-8">
             <a href="/" className="text-gray-600 hover:text-black transition-colors">
               Home
             </a>
@@ -43,7 +43,7 @@ export default function Navigation() {
             <a href="/profile-building" className="text-gray-600 hover:text-black transition-colors">
               Profile
             </a>
-          </div>
+          </div> */}
 
           {/* Desktop CTA Buttons */}
           <div className="hidden md:flex items-center space-x-4">
