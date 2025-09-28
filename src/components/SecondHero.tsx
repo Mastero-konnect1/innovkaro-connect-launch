@@ -111,51 +111,7 @@ interface SecondHeroProps {
 }
 
 const SecondHero: React.FC<SecondHeroProps> = ({ variant = 'carousel' }) => {
-  const [canScrollLeft, setCanScrollLeft] = useState(false);
-  const [canScrollRight, setCanScrollRight] = useState(true);
   const carouselRef = useRef<HTMLDivElement>(null);
-  const [isAutoScrolling, setIsAutoScrolling] = useState(true);
-
-  useEffect(() => {
-    const carousel = carouselRef.current;
-    if (!carousel || variant !== 'carousel') return;
-
-    const checkScrollButtons = () => {
-      setCanScrollLeft(carousel.scrollLeft > 0);
-      setCanScrollRight(
-        carousel.scrollLeft < carousel.scrollWidth - carousel.clientWidth
-      );
-    };
-
-    carousel.addEventListener('scroll', checkScrollButtons);
-    checkScrollButtons();
-
-    // Auto-scroll functionality
-    let autoScrollInterval: NodeJS.Timeout;
-    
-    if (isAutoScrolling) {
-      autoScrollInterval = setInterval(() => {
-        if (carousel.scrollLeft >= carousel.scrollWidth - carousel.clientWidth) {
-          carousel.scrollTo({ left: 0, behavior: 'smooth' });
-        } else {
-          carousel.scrollBy({ left: 300, behavior: 'smooth' });
-        }
-      }, 3000);
-    }
-
-    return () => {
-      carousel.removeEventListener('scroll', checkScrollButtons);
-      if (autoScrollInterval) clearInterval(autoScrollInterval);
-    };
-  }, [variant, isAutoScrolling]);
-
-  const scrollLeft = () => {
-    carouselRef.current?.scrollBy({ left: -300, behavior: 'smooth' });
-  };
-
-  const scrollRight = () => {
-    carouselRef.current?.scrollBy({ left: 300, behavior: 'smooth' });
-  };
 
   return (
     <section className="mentor-section">
@@ -185,8 +141,6 @@ const SecondHero: React.FC<SecondHeroProps> = ({ variant = 'carousel' }) => {
               <div 
                 ref={carouselRef}
                 className="mentor-rail"
-                onMouseEnter={() => setIsAutoScrolling(false)}
-                onMouseLeave={() => setIsAutoScrolling(true)}
               >
                 <div className="mentor-rail-track">
                   {mentorCategories.map((category) => (
@@ -200,24 +154,6 @@ const SecondHero: React.FC<SecondHeroProps> = ({ variant = 'carousel' }) => {
                   ))}
                 </div>
               </div>
-
-              {/* Navigation Arrows */}
-              <button
-                className={`mentor-nav mentor-nav-left ${!canScrollLeft ? 'opacity-50 cursor-not-allowed' : ''}`}
-                onClick={scrollLeft}
-                disabled={!canScrollLeft}
-                aria-label="Previous mentors"
-              >
-                <ChevronLeft size={20} />
-              </button>
-              <button
-                className={`mentor-nav mentor-nav-right ${!canScrollRight ? 'opacity-50 cursor-not-allowed' : ''}`}
-                onClick={scrollRight}
-                disabled={!canScrollRight}
-                aria-label="Next mentors"
-              >
-                <ChevronRight size={20} />
-              </button>
             </div>
 
             {/* Callout Strip */}
