@@ -1,10 +1,69 @@
+// import { Twitter, Linkedin, Youtube, Facebook, Instagram } from 'lucide-react';
+
+// const Footer = () => {
+//   return (
+//     <footer className="bg-gradient-to-r from-sky-600 to-indigo-700 text-white mt-8 sm:mt-12">
+//       <div className="max-w-7xl mx-auto px-4 sm:px-6 py-10 sm:py-12 md:py-16">
+//         <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-6 sm:gap-8">
+//           <div>
+//             <h3 className="text-xl sm:text-2xl font-semibold">InnovKaro</h3>
+//             <p className="mt-3 sm:mt-4 text-sm opacity-90">Connecting mentors and mentees for meaningful professional growth and career development.</p>
+//             <div className="flex gap-3 sm:gap-4 mt-3 sm:mt-4">
+//               <a href="https://x.com/KonnectMas86897" target='_blank' className="hover:text-sky-200 hover:scale-105 transition-transform"><Twitter size={20} /></a>
+//               <a href="https://www.linkedin.com/company/innov-karo/" target='_blank' className="hover:text-sky-200 hover:scale-105 transition-transform"><Linkedin size={20} /></a>
+//               <a href="https://www.youtube.com/@Innovkaro" target='_blank' className="hover:text-sky-200 hover:scale-105 transition-transform"><Youtube size={20} /></a>
+//               <a href=" https://www.facebook.com/profile.php?id=61581066593207" target='_blank' className="hover:text-sky-200 hover:scale-105 transition-transform"><Facebook size={20} /></a>
+//               <a href="https://www.instagram.com/innovkaro/" target='_blank' className="hover:text-sky-200 hover:scale-105 transition-transform"><Instagram size={20} /></a>
+//             </div>
+//           </div>
+
+//           {/* <div>
+//             <h4 className="font-semibold mb-3">Quick Links</h4>
+//             <ul className="text-sm space-y-2">
+//               <li><a href="/find-mentor" className="hover:underline hover:text-sky-400 transition">Find Mentors</a></li>
+//               <li><a href="/ai-assessment" className="hover:underline hover:text-sky-400 transition">AI Assessment</a></li>
+//               <li><a href="/profile-building" className="hover:underline hover:text-sky-400 transition">Build Profile</a></li>
+//               <li><a href="/auth/sign-up" className="hover:underline hover:text-sky-400 transition">Become a Mentor</a></li>
+//             </ul>
+//           </div> */}
+
+//            {/* <div>
+//             <h4 className="font-semibold mb-3">About Us</h4>
+//             <ul className="text-sm space-y-2">
+//               <li><a href="#mission" className="hover:underline hover:text-sky-400 transition">Our Mission</a></li>
+//               <li><a href="#how-it-works" className="hover:underline hover:text-sky-400 transition">How It Works</a></li>
+//               <li><a href="#success" className="hover:underline hover:text-sky-400 transition">Success Stories</a></li>
+//               <li><a href="#blog" className="hover:underline hover:text-sky-400 transition">Blog</a></li>
+//             </ul>
+//           </div> */}
+
+//           <div>
+//             <h4 className="font-semibold mb-3">Contact</h4>
+//             <p className="text-sm">Email: connect@innovkaro.com</p>
+//             <p className="text-sm mt-2">Phone: +91 73829 87332</p>
+//             <ul className="text-sm space-y-2 mt-4">
+//               <li><a href="#support" className="hover:underline hover:text-sky-400 transition">Support Center</a></li>
+//               <li><a href="#privacy" className="hover:underline hover:text-sky-400 transition">Privacy Policy</a></li>
+//             </ul>
+//           </div>
+//         </div>
+
+//         <hr className="my-6 sm:my-8 border-white/20" />
+//         <div className="text-center text-xs sm:text-sm opacity-80 px-4">© 2024 InnovKaro. All rights reserved. Built with ❤️ for professional growth.</div>
+//       </div>
+//     </footer>
+//   );
+// };
+
+// export default Footer;
 import { Twitter, Linkedin, Youtube, Facebook, Instagram } from 'lucide-react';
 
 const Footer = () => {
   return (
     <footer className="bg-gradient-to-r from-sky-600 to-indigo-700 text-white mt-8 sm:mt-12">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 py-10 sm:py-12 md:py-16">
-        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-6 sm:gap-8">
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 sm:gap-8">
+          {/* Socials Section */}
           <div>
             <h3 className="text-xl sm:text-2xl font-semibold">InnovKaro</h3>
             <p className="mt-3 sm:mt-4 text-sm opacity-90">Connecting mentors and mentees for meaningful professional growth and career development.</p>
@@ -17,31 +76,12 @@ const Footer = () => {
             </div>
           </div>
 
-          <div>
-            <h4 className="font-semibold mb-3">Quick Links</h4>
-            <ul className="text-sm space-y-2">
-              <li><a href="/find-mentor" className="hover:underline hover:text-sky-400 transition">Find Mentors</a></li>
-              <li><a href="/ai-assessment" className="hover:underline hover:text-sky-400 transition">AI Assessment</a></li>
-              <li><a href="/profile-building" className="hover:underline hover:text-sky-400 transition">Build Profile</a></li>
-              <li><a href="/auth/sign-up" className="hover:underline hover:text-sky-400 transition">Become a Mentor</a></li>
-            </ul>
-          </div>
-
-           <div>
-            <h4 className="font-semibold mb-3">About Us</h4>
-            <ul className="text-sm space-y-2">
-              <li><a href="#mission" className="hover:underline hover:text-sky-400 transition">Our Mission</a></li>
-              <li><a href="#how-it-works" className="hover:underline hover:text-sky-400 transition">How It Works</a></li>
-              <li><a href="#success" className="hover:underline hover:text-sky-400 transition">Success Stories</a></li>
-              <li><a href="#blog" className="hover:underline hover:text-sky-400 transition">Blog</a></li>
-            </ul>
-          </div>
-
-          <div>
-            <h4 className="font-semibold mb-3">Contact</h4>
+          {/* Contact Section - positioned on the right in desktop */}
+          <div className="lg:text-right lg:justify-self-end">
+            <h4 className="font-semibold mb-3">Contact Us</h4>
             <p className="text-sm">Email: connect@innovkaro.com</p>
             <p className="text-sm mt-2">Phone: +91 73829 87332</p>
-            <ul className="text-sm space-y-2 mt-4">
+            <ul className="text-sm space-y-2 mt-4 lg:flex lg:flex-col lg:items-end">
               <li><a href="#support" className="hover:underline hover:text-sky-400 transition">Support Center</a></li>
               <li><a href="#privacy" className="hover:underline hover:text-sky-400 transition">Privacy Policy</a></li>
             </ul>
