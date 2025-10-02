@@ -67,43 +67,13 @@ export default function Navigation() {
         {/* Mobile Menu */}
         {isMenuOpen && (
           <div className="md:hidden py-4 border-t border-border bg-white text-black">
-            <div className="flex flex-col space-y-4">
-              <a
-                href="/"
-                className="text-gray-600 hover:text-black transition-colors px-4 py-2"
-                onClick={toggleMenu}
-              >
-                Home
-              </a>
-              <a
-                href="/find-mentor"
-                className="text-gray-600 hover:text-black transition-colors px-4 py-2"
-                onClick={toggleMenu}
-              >
-                Find Mentors
-              </a>
-              <a
-                href="/ai-assessment"
-                className="text-gray-600 hover:text-black transition-colors px-4 py-2"
-                onClick={toggleMenu}
-              >
-                AI Assessment
-              </a>
-              <a
-                href="/profile-building"
-                className="text-gray-600 hover:text-black transition-colors px-4 py-2"
-                onClick={toggleMenu}
-              >
-                Profile
-              </a>
-              <div className="flex flex-col space-y-2 px-4 pt-4 text-black border-t border-border">
-                <Button variant="outline" asChild className="text-black border-gray-300 hover:bg-gray-50">
-                  <a href="/auth/sign-up" onClick={toggleMenu}>Become a Mentor</a>
-                </Button>
-                <Button asChild className="bg-gradient-to-r from-blue-600 to-purple-600 hover:opacity-90">
-                  <a href="/auth/sign-in" onClick={toggleMenu}>Get Started</a>
-                </Button>
-              </div>
+            <div className="flex flex-col space-y-2 px-4">
+              <Button variant="outline" asChild className="text-black border-gray-300 hover:bg-gray-50">
+                <a href="/auth/sign-up" onClick={toggleMenu}>Become a Mentor</a>
+              </Button>
+              <Button asChild className="bg-gradient-to-r from-blue-600 to-purple-600 hover:opacity-90">
+                <a href="/auth/sign-in" onClick={toggleMenu}>Get Started</a>
+              </Button>
             </div>
           </div>
         )}
