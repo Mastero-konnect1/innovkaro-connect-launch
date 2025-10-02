@@ -66,7 +66,9 @@ const Footer = () => {
           {/* Socials Section */}
           <div>
             <h3 className="text-xl sm:text-2xl font-semibold">InnovKaro</h3>
-            <p className="mt-3 sm:mt-4 text-sm opacity-90">Connecting mentors and mentees for meaningful professional growth and career development.</p>
+            <p className="mt-3 sm:mt-4 text-sm opacity-90">InnovKaro is a revolutionary platform designed to bridge the gap between mentors and mentees, connecting students, professionals, and enthusiasts with experienced mentors in a seamless and efficient manner.
+
+With a focus on user-friendly profiles, easy connectivity, and tailored mentorship experiences. InnovKaro aims to revolutionize the way individuals seek guidance and mentorship. </p>
             <div className="flex gap-3 sm:gap-4 mt-3 sm:mt-4">
               <a href="https://x.com/KonnectMas86897" target='_blank' className="hover:text-sky-200 hover:scale-105 transition-transform"><Twitter size={20} /></a>
               <a href="https://www.linkedin.com/company/innov-karo/" target='_blank' className="hover:text-sky-200 hover:scale-105 transition-transform"><Linkedin size={20} /></a>
