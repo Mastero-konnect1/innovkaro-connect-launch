@@ -2,18 +2,18 @@ import { Twitter, Linkedin, Youtube, Facebook, Instagram } from 'lucide-react';
 
 const Footer = () => {
   return (
-    <footer className="bg-gradient-to-r from-sky-600 to-indigo-700 text-white mt-12">
-      <div className="max-w-7xl mx-auto px-6 py-16">
-        <div className="grid grid-cols-1 md:grid-cols-4 gap-8">
+    <footer className="bg-gradient-to-r from-sky-600 to-indigo-700 text-white mt-8 sm:mt-12">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 py-10 sm:py-12 md:py-16">
+        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-6 sm:gap-8">
           <div>
-            <h3 className="text-2xl font-semibold">InnovKaro</h3>
-            <p className="mt-4 text-sm opacity-90">Connecting mentors and mentees for meaningful professional growth and career development.</p>
-            <div className="flex gap-4 mt-4">
-              <a href="https://x.com/KonnectMas86897" target='_blank' className="hover:text-sky-200 hover:scale-105 transition-transform"><Twitter/></a>
-              <a href="https://www.linkedin.com/company/innov-karo/" target='_blank' className="hover:text-sky-200 hover:scale-105 transition-transform"><Linkedin /></a>
-              <a href="https://www.youtube.com/@Innovkaro" target='_blank' className="hover:text-sky-200 hover:scale-105 transition-transform"><Youtube/></a>
-              <a href=" https://www.facebook.com/profile.php?id=61581066593207" target='_blank' className="hover:text-sky-200 hover:scale-105 transition-transform"><Facebook/></a>
-              <a href="https://www.instagram.com/innovkaro/" target='_blank' className="hover:text-sky-200 hover:scale-105 transition-transform"><Instagram/></a>
+            <h3 className="text-xl sm:text-2xl font-semibold">InnovKaro</h3>
+            <p className="mt-3 sm:mt-4 text-sm opacity-90">Connecting mentors and mentees for meaningful professional growth and career development.</p>
+            <div className="flex gap-3 sm:gap-4 mt-3 sm:mt-4">
+              <a href="https://x.com/KonnectMas86897" target='_blank' className="hover:text-sky-200 hover:scale-105 transition-transform"><Twitter size={20} /></a>
+              <a href="https://www.linkedin.com/company/innov-karo/" target='_blank' className="hover:text-sky-200 hover:scale-105 transition-transform"><Linkedin size={20} /></a>
+              <a href="https://www.youtube.com/@Innovkaro" target='_blank' className="hover:text-sky-200 hover:scale-105 transition-transform"><Youtube size={20} /></a>
+              <a href=" https://www.facebook.com/profile.php?id=61581066593207" target='_blank' className="hover:text-sky-200 hover:scale-105 transition-transform"><Facebook size={20} /></a>
+              <a href="https://www.instagram.com/innovkaro/" target='_blank' className="hover:text-sky-200 hover:scale-105 transition-transform"><Instagram size={20} /></a>
             </div>
           </div>
 
@@ -48,8 +48,8 @@ const Footer = () => {
           </div>
         </div>
 
-        <hr className="my-8 border-white/20" />
-        <div className="text-center text-sm opacity-80">© 2024 InnovKaro. All rights reserved. Built with ❤️ for professional growth.</div>
+        <hr className="my-6 sm:my-8 border-white/20" />
+        <div className="text-center text-xs sm:text-sm opacity-80 px-4">© 2024 InnovKaro. All rights reserved. Built with ❤️ for professional growth.</div>
       </div>
     </footer>
   );

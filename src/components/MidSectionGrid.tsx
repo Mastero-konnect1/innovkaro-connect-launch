@@ -27,29 +27,29 @@ const MidSectionGrid = () => {
   ];
 
   return (
-    <section className="py-20 px-6" style={{ backgroundColor: '#ffffff' }}>
+    <section className="py-12 sm:py-16 md:py-20 px-4 sm:px-6" style={{ backgroundColor: '#ffffff' }}>
       <div className="max-w-[1200px] mx-auto">
         {/* Section Header */}
-        <div className="text-center mb-16">
-          <h2 className="font-playfair text-4xl lg:text-5xl font-bold text-black mb-4">
+        <div className="text-center mb-10 sm:mb-12 md:mb-16">
+          <h2 className="font-playfair text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold text-black mb-3 sm:mb-4 px-4">
             Everything Your Team Needs to Work Smarter
           </h2>
-          <p className="text-xl text-black max-w-3xl mx-auto leading-relaxed">
+          <p className="text-base sm:text-lg md:text-xl text-black max-w-3xl mx-auto leading-relaxed px-4">
             Powerful features designed to streamline collaboration and boost productivity across your entire organization.
           </p>
         </div>
 
         {/* Features Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-8" style={{ gap: '32px' }}>
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-6 sm:gap-8">
           {features.map((feature, index) => (
             <div
               key={index}
               className="glass-card rounded-2xl overflow-hidden shadow-lg hover:shadow-xl transition-all duration-300 transform hover:-translate-y-1"
-              style={{ minHeight: '200px', padding: '24px' }}
+              style={{ minHeight: '200px', padding: '20px' }}
             >
               <div className="h-full flex flex-col">
                 {/* Image Area */}
-                <div className="w-full h-32 mb-4 rounded-lg overflow-hidden bg-gradient-to-r from-brand-blue/20 to-brand-purple/20 flex items-center justify-center">
+                <div className="w-full h-28 sm:h-32 mb-3 sm:mb-4 rounded-lg overflow-hidden bg-gradient-to-r from-brand-blue/20 to-brand-purple/20 flex items-center justify-center">
                   <img 
                     src={feature.image} 
                     alt={feature.title}
@@ -59,10 +59,10 @@ const MidSectionGrid = () => {
                 
                 {/* Content */}
                 <div className="flex-1">
-                  <h3 className="text-xl font-semibold text-black mb-3 leading-tight">
+                  <h3 className="text-lg sm:text-xl font-semibold text-black mb-2 sm:mb-3 leading-tight">
                     {feature.title}
                   </h3>
-                  <p className="text-black leading-relaxed">
+                  <p className="text-sm sm:text-base text-black leading-relaxed">
                     {feature.description}
                   </p>
                 </div>

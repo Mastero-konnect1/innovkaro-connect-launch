@@ -24,22 +24,22 @@ const FeaturesRow = () => {
   ];
 
   return (
-    <section className="py-20 px-6" style={{ backgroundColor: '#f8fafc' }}>
+    <section className="py-12 sm:py-16 md:py-20 px-4 sm:px-6" style={{ backgroundColor: '#f8fafc' }}>
       <div className="max-w-[1200px] mx-auto">
-        <div className="flex flex-col md:flex-row gap-8 justify-center">
+        <div className="flex flex-col md:flex-row gap-6 sm:gap-8 justify-center">
           {features.map((feature, index) => (
             <div
               key={index}
-              className="relative p-6 rounded-2xl backdrop-blur-md bg-gradient-to-br from-blue-500/10 via-purple-500/10 to-violet-500/10 border border-white/20 shadow-lg hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-2 hover:scale-105 flex-1 max-w-sm"
+              className="relative p-5 sm:p-6 rounded-2xl backdrop-blur-md bg-gradient-to-br from-blue-500/10 via-purple-500/10 to-violet-500/10 border border-white/20 shadow-lg hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-2 hover:scale-105 flex-1 max-w-sm mx-auto w-full"
               style={{ 
-                minHeight: '180px',
+                minHeight: '160px',
                 background: 'linear-gradient(135deg, rgba(59, 130, 246, 0.1) 0%, rgba(147, 51, 234, 0.1) 50%, rgba(139, 92, 246, 0.1) 100%)',
                 backdropFilter: 'blur(10px)',
                 boxShadow: '0 8px 32px 0 rgba(31, 38, 135, 0.37)'
               }}
             >
-              <div className="space-y-4">
-                <h3 className="text-xl font-semibold leading-tight text-gray-800">
+              <div className="space-y-3 sm:space-y-4">
+                <h3 className="text-lg sm:text-xl font-semibold leading-tight text-gray-800">
                   {feature.title}
                 </h3>
                 <p className="text-sm leading-relaxed text-gray-700">
