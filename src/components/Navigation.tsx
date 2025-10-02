@@ -48,10 +48,10 @@ export default function Navigation() {
           {/* Desktop CTA Buttons */}
           <div className="hidden md:flex items-center space-x-4">
             <Button variant="outline" asChild className="text-black border-gray-300 hover:bg-gray-50">
-              <a href="/auth/sign-up">Become a Mentor</a>
+              <a href="https://docs.google.com/forms/d/e/1FAIpQLSeksCAB6eHZLaIiSFBcBV8SM6JW8p42IDvIy1rS2l6YPNGnzw/viewform">Become a Mentor</a>
             </Button>
             <Button asChild className="bg-gradient-to-r from-blue-600 to-purple-600 hover:opacity-90">
-              <a href="/auth/sign-in">Get Started</a>
+              <a href="https://docs.google.com/forms/d/e/1FAIpQLSeksCAB6eHZLaIiSFBcBV8SM6JW8p42IDvIy1rS2l6YPNGnzw/viewform">Get Started</a>
             </Button>
           </div>
 

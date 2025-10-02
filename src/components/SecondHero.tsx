@@ -121,11 +121,12 @@ const SecondHero: React.FC<SecondHeroProps> = ({ variant = 'carousel' }) => {
           500+ Industry Mentors Ready to Guide You
         </h1>
         <p className="mentor-lead">
-          InnovKaro is backed by 500+ mentors who've already shown interest in our platform.
-          <br />
-          From established domains to cutting-edge fields, our mentors bring real-world experience
-          and actionable insights to help you make the right moves.
-        </p>
+  InnovKaro is backed by 500+ mentors <strong className="brand-gradient-text">who've already shown interest in our platform.</strong>
+  <br />
+  From established domains to cutting-edge fields, our mentors bring real-world experience
+  and actionable insights to help you make the right moves.
+</p>
+
 
         {/* Content - Grid or Carousel */}
         {variant === 'grid' ? (
